@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Card</title>
+  <style>
+    body {
+      margin: 0;
+      background: #0d1b2a;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .wrapper {
+      position: relative;
+      width: 300px;
+      height: 200px;
+    }
+
+    .envelope {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 150px;
+      background: pink;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .lid {
+      position: absolute;
+      width: 100%;
+      height: 100px;
+      background: #f06292;
+      clip-path: polygon(0 100%, 50% 0, 100% 100%);
+      transform-origin: top;
+      transition: transform 0.6s ease;
+    }
+
+    .letter {
+      position: absolute;
+      top: -120px;
+      width: 100%;
+      height: 120px;
+      background: white;
+      text-align: center;
+      padding-top: 20px;
+      font-size: 20px;
+      color: #d32f2f;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+
+    .buttons {
+      position: absolute;
+      top: 220px;
+      width: 100%;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #ec407a;
+      border: none;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin: 5px;
+    }
+
+    .wrapper.open .lid {
+      transform: rotateX(180deg);
+    }
+
+    .wrapper.open .letter {
+      top: 0;
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrapper" id="card">
+  <div class="lid"></div>
+  <div class="envelope"></div>
+  <div class="letter">
+    <p>Happy Birthday ❤️</p>
+  </div>
+</div>
+
+<div class="buttons">
+  <button onclick="openCard()">Open</button>
+  <button onclick="closeCard()">Close</button>
+</div>
+
+<script>
+  function openCard() {
+    document.getElementById('card').classList.add('open');
+  }
+
+  function closeCard() {
+    document.getElementById('card').classList.remove('open');
+  }
+</script>
+
+</body>
+</html>
